@@ -1,0 +1,18 @@
+.navbar {
+  height: 60px;
+  background-color: #343a40;
+  .navigacion {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .logo {
+      width: 30px;
+    }
+    &__element {
+      list-style: none;
+      margin-left: 2rem;
+    }
+  }
+}
