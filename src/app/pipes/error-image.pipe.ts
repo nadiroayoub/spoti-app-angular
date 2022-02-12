@@ -5,7 +5,7 @@ import { Image } from '../models/newRealease.interface';
   name: 'errorImage',
 })
 export class ErrorImagePipe implements PipeTransform {
-  transform(images: Image[]): string {
+  transform(images: Image[] | Image[]): string {
     if (!images) {
       console.log('!images');
       return 'assets/noimage.png';

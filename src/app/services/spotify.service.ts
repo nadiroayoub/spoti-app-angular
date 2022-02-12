@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, Observable } from 'rxjs';
+import { ITracks, Track } from '../models/tracks.interface';
 import {
   APINewReleases,
   FormattedNewReleases,
@@ -12,8 +13,7 @@ import {
 })
 export class SpotifyService {
   token =
-    'BQBhNhCa9CpSrq9tOPvsXqva5C-Zdx70R06G2Rb0rCZ-BY9FEvQzQmXxW_dzNWiLX1UKagJy0vYBV0uzM1k';
-  // getNewReleases = new Subject;
+    'BQCauNdyqo4XrPRUhoHq_ycV9nJYMI5oEdYVDayWFVyFPH_R1aycbB-qakeqaerH-4XH1LuUS5EOiJ4LD4A';
   constructor(private http: HttpClient) {}
 
   getQuery(query: string) {
@@ -55,13 +55,43 @@ export class SpotifyService {
         if (!res) {
           throw new Error('Value expected!');
         } else {
-          console.log(res);
           const listArtists: Artist[] = res.artists.items;
           return listArtists;
         }
       }),
       catchError((err) => {
         console.log('errror' + err);
+        throw new Error(err.message);
+      })
+    );
+  }
+  getArtistPorId(id: string): Observable<Artist> {
+    return this.getQuery(`artists/${id}`).pipe(
+      map((res) => {
+        if (!res) {
+          throw new Error('Value expected!');
+        } else {
+          const artista: Artist = res;
+          return artista;
+        }
+      }),
+      catchError((err) => {
+        console.log('error' + err);
+        throw new Error(err.message);
+      })
+    );
+  }
+  getTopTracks(id: string): Observable<ITracks> {
+    return this.getQuery(`artists/${id}/top-tracks?market=ES`).pipe(
+      map((res) => {
+        if (!res) {
+          throw new Error('Value expected!');
+        } else {
+          return res;
+        }
+      }),
+      catchError((err) => {
+        console.log('error' + err);
         throw new Error(err.message);
       })
     );

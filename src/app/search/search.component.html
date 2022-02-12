@@ -47,8 +47,9 @@
   </ng-container>
   <ng-template #elseTemplate>
     <div
+      [routerLink]="['/artist/' + artist.id]"
       *ngFor="let artist of listArtists"
-      class="basis-1/1 md:basis-1/3 max-w-sm mb-4 mr-4 rounded overflow-hidden shadow-lg"
+      class="basis-1/1 md:basis-1/3 max-w-sm mb-4 mr-4 rounded overflow-hidden shadow-lg hover:scale-110 transition-all cursor-pointer"
     >
       <img
         class="w-full text-black"

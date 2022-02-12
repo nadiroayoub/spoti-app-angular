@@ -25,6 +25,8 @@ export class SearchComponent implements OnInit {
           this.listArtists = data;
           if (this.listArtists.length === 0) {
             this.showModal = true;
+          } else {
+            this.showModal = false;
           }
         },
         (err) => {

@@ -6,9 +6,12 @@
 
 <div class="min-h-screen flex flex-row bg-gray-100">
   <div class="flex flex-col w-56 bg-black overflow-hidden">
-    <div class="flex items-center justify-center h-20 shadow-md w-full p-4">
+    <div
+      class="cursor-pointer flex items-center justify-center h-20 shadow-md w-full p-4"
+      [routerLink]="['/home']"
+    >
       <img src="assets/banner-ico.png" alt="" class="h-full mr-2" />
-      <h1 class="text-2xl text-white-500 font-bold">SpotiApp</h1>
+      <h1 class="select-none text-2xl text-white-500 font-bold">SpotiApp</h1>
     </div>
     <ul class="flex flex-col py-4">
       <li>
@@ -30,7 +33,7 @@
         >
           <span
             class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"
-            ><i class="bx bx-music"></i
+            ><i class="bx bx-search"></i
           ></span>
           <span class="text-sm font-medium">Buscar</span>
         </a>

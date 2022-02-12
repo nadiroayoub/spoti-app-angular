@@ -1,1 +1,101 @@
-<p>artista works!</p>
+<div class="flex flex-col artista-seccion mt-28">
+  <div class="w-fit artista-seccion__datos mb-4">
+    <img
+      [src]="artista!.images | errorImage"
+      alt=""
+      class="rounded-full w-40 mb-4"
+    />
+    <h4 class="text-center spotify-logo-color font-bold">
+      {{ artista?.name }}
+    </h4>
+  </div>
+  <div class="flex-auto my-auto">
+    <section class="relative bg-blueGray-50">
+      <div class="w-full mb-12 px-4">
+        <div
+          class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded spotify-logo-color text-white"
+        >
+          <div class="block w-full overflow-x-auto">
+            <table class="items-center w-full bg-transparent border-collapse">
+              <thead>
+                <tr>
+                  <th
+                    class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left text-white border-green-700 artista-bg-black"
+                  >
+                    Foto
+                  </th>
+                  <th
+                    class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left text-white border-green-700 artista-bg-black"
+                  >
+                    Album
+                  </th>
+                  <th
+                    class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left text-white border-green-700 artista-bg-black"
+                  >
+                    Nombre
+                  </th>
+                  <th
+                    class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left text-white border-green-700 artista-bg-black"
+                  >
+                    Popularidad
+                  </th>
+                  <th
+                    class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left text-white border-green-700 artista-bg-black"
+                  >
+                    Escuchar
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let track of topTracks">
+                  <th
+                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center"
+                  >
+                    <img
+                      [src]="track.album.images[0].url"
+                      class="h-12 w-12 bg-white rounded-full border"
+                    />
+                  </th>
+                  <td
+                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                  >
+                    {{ track.album.name }}
+                  </td>
+                  <td
+                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                  >
+                    <i class="fas fa-circle text-orange-500 mr-2"></i>
+                    {{ track.name }}
+                  </td>
+                  <td
+                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                  >
+                    <div class="flex">
+                      {{ track.popularity + "%" }}
+                    </div>
+                  </td>
+                  <td
+                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+                  >
+                    <div class="flex items-center">
+                      <iframe
+                        style="border-radius: 12px"
+                        [attr.src]="track.id | uri"
+                        width="300"
+                        height="80"
+                        frameBorder="0"
+                        allowtransparency="true"
+                        allow="encrypted-media;"
+                      >
+                      </iframe>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

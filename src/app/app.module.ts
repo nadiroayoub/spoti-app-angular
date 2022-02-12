@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ArtistaComponent } from './artista/artista.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorImagePipe } from './pipes/error-image.pipe';
+import { UriPipe } from './pipes/uri.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ErrorImagePipe } from './pipes/error-image.pipe';
     SearchComponent,
     ArtistaComponent,
     ErrorImagePipe,
+    UriPipe,
   ],
   imports: [
     BrowserModule,
