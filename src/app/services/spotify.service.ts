@@ -13,7 +13,7 @@ import {
 })
 export class SpotifyService {
   token =
-    'BQCauNdyqo4XrPRUhoHq_ycV9nJYMI5oEdYVDayWFVyFPH_R1aycbB-qakeqaerH-4XH1LuUS5EOiJ4LD4A';
+    'BQB8oRz2aqldSFcO1S7ogCbYAyXSFVeA6bY_u2A1vgzImkDYQOJNaE1ENk_m6f3CojvcZnrJpICMb141HBY';
   constructor(private http: HttpClient) {}
 
   getQuery(query: string) {
